@@ -407,4 +407,10 @@ export const cvFiles: Record<Lang, string> = {
   ru: "/cv/Робияхон_Ахмедова.pdf",
 };
 
+export const cvFileNames: Record<Lang, string> = {
+  en: "ROBIYAKHON_AKHMEDOVA.pdf",
+  uz: "ROBIYAXON_AXMEDOVA.pdf",
+  ru: "Робияхон_Ахмедова.pdf",
+};
+
 export const projectIcons = ["💰", "🧠", "🤖", "📚", "🎥"];
