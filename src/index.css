@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #0a0a12;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  color: #e0dce8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(168, 130, 255, 0.3);
+  color: #fff;
+}
+
+a {
+  color: #c4a8ff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #e0d0ff;
+}
+
+/* ─── Animations ─── */
+@keyframes floatParticle {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
+  25% { transform: translate(30px, -40px) scale(1.2); opacity: 0.7; }
+  50% { transform: translate(-20px, -80px) scale(0.8); opacity: 0.3; }
+  75% { transform: translate(40px, -30px) scale(1.1); opacity: 0.6; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(168, 130, 255, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(168, 130, 255, 0.4); }
+}
+
+/* ─── Nav links ─── */
+.nav-link {
+  position: relative;
+  cursor: pointer;
+  padding: 6px 0;
+  color: #999;
+  transition: color 0.3s;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+/* ─── Language buttons ─── */
+.lang-btn {
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.25s;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+.lang-btn:hover {
+  border-color: rgba(168, 130, 255, 0.4);
+  color: #c4a8ff;
+}
+
+.lang-btn.active {
+  background: rgba(168, 130, 255, 0.15);
+  border-color: rgba(168, 130, 255, 0.4);
+  color: #c4a8ff;
+}
+
+/* ─── CTA Buttons ─── */
+.cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #7c5cbf, #a882ff);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(168, 130, 255, 0.3);
+}
+
+.cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 14px;
+  background: transparent;
+  color: #c4a8ff;
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid rgba(168, 130, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+.cta-secondary:hover {
+  background: rgba(168, 130, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+/* ─── Hamburger ─── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ccc;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ─── Contact link hover ─── */
+.contact-link {
+  transition: all 0.3s;
+}
+
+.contact-link:hover {
+  background: rgba(168, 130, 255, 0.1) !important;
+  border-color: rgba(168, 130, 255, 0.25) !important;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-nav-open {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none !important;
+  }
+}
