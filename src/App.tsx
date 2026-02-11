@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { translations, langLabels, cvFiles, projectIcons, type Lang } from "./data/translations";
+import { translations, langLabels, cvFiles, cvFileNames, projectIcons, type Lang } from "./data/translations";
 import { Particles, Section, Glass, Badge, Heading } from "./components/UI";
 
 export default function App() {
@@ -255,7 +255,28 @@ export default function App() {
             <button className="cta-primary" onClick={() => scrollTo("projects")}>
               {t.hero.cta1} →
             </button>
-            <a href={cvFiles[lang]} download className="cta-secondary">
+            <a
+              href={cvFiles[lang]}
+              download={cvFileNames[lang]}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cta-secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                fetch(cvFiles[lang])
+                  .then((res) => res.blob())
+                  .then((blob) => {
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = cvFileNames[lang];
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                  });
+              }}
+            >
               ↓ {t.hero.cta2}
             </a>
             <button className="cta-secondary" onClick={() => scrollTo("contact")}>
